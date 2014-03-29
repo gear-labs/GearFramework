@@ -1,0 +1,43 @@
+.hero-spacer {
+	margin-top: 50px;
+}
+
+.blue {
+	color: #046386;
+}
+
+.fork {
+	margin-top: 1em;
+	height: 70px;
+}
+
+	.fork a,
+	.fork a:hover,
+	.fork a:link,
+	.fork a:visited,
+	.fork a.focus {
+		color: #FFF;
+		display: block;
+		font-size: 18px;
+		font-weight: bold;
+		margin-top: 17px;
+		text-decoration: none;
+	}
+
+.panel-custom > .panel-heading {
+	background-color: #428bca;
+	color: #FFF;
+}
+
+	.panel-custom > .panel-heading > .panel-title {
+		font-size: 20px;
+	}
+
+.ad {
+	vertical-align: middle;
+}
+
+.logo {
+	max-height: 200px;
+	margin: -15px auto 0;	
+}
