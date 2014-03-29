@@ -1,6 +1,6 @@
 <?php
 		
-	class Work
+	class GearDB
 	{
 		static $registers;
 		static $mysqli = null;
