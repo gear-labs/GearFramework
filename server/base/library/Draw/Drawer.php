@@ -43,12 +43,10 @@ class Drawer extends Template {
 		}//end if
 
 		
-		if( isset( $masterPage[ 'HEAD' ] ) )
-			$this->headTemplate = file_get_contents( $uri . $masterPage[ 'HEAD' ] . '.html' );
-		if( isset( $masterPage[ 'HEADER' ] ) )
-			$this->headerTemplate = file_get_contents( $uri . $masterPage[ 'HEADER' ] . '.html' );
-		if( isset( $masterPage[ 'FOOTER' ] ) )
-			$this->footerTemplate = file_get_contents( $uri . $masterPage[ 'FOOTER' ] . '.html' );
+
+		$this->headTemplate = file_get_contents( $uri . $masterPage[ 'HEAD' ] . '.html' );
+		$this->headerTemplate = file_get_contents( $uri . $masterPage[ 'HEADER' ] . '.html' );
+		$this->footerTemplate = file_get_contents( $uri . $masterPage[ 'FOOTER' ] . '.html' );
 
 	}//end __construct
 

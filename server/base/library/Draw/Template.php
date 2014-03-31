@@ -1,4 +1,5 @@
 <?php
+
 namespace Gear\Draw;
 
 class Template 
@@ -28,7 +29,7 @@ class Template
 			$this->pageTemplate = file_get_contents( 'client/html/notification/' . $error . '.html' );
 			$controller = 'server/controller/'. ucfirst( $error ).'Controller.php';
 		}//end if..else
-		
+
 		require_once  $controller;
 
 	}//end setMVC
