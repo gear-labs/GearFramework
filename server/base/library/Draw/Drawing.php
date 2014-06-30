@@ -32,9 +32,9 @@ class Drawing extends MasterDrawing
 	protected function setList( $name )
 	{
 		//Establece el directorio de las listas de una vista			
-		$directory = 'client/html/app/' . lcfirst( $this->className ).'/list/';
+		$directory = 'client/html/app/' . $this->folder .'/lists/';
 		// Obtiene el template a procesar
-		$this->template = file_get_contents( $directory . $name . 'List.html' );
+		$this->template = file_get_contents( $directory . $name . '.html' );
 	}
 
 	//***********************************************************************************
@@ -63,8 +63,9 @@ class Drawing extends MasterDrawing
 		//Si se ha pasado la lista que reemplazar
 		if( isset( $replaced ) )
 		{
-			foreach ( $replaced as $function )
-				eval( '$this->draw' . $function . ';' );
+			$size = sizeof( $replaced );
+			for( $i = 0; $i < $size; $i++ )
+				eval( '$this->draw' . $replaced[ $i ] . ';' );
 		}//end if
 
 		//Si se pasaron elementos extras que traducir

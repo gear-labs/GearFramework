@@ -1,5 +1,5 @@
 <?php
-
+$tiempo_inicio = microtime(true);
 require_once 'server/libraries.php'; // Carga las librerias a usar
 
 
@@ -17,4 +17,8 @@ if ( isset( $config[ 'Data Base' ] ) )
 	Gear\Db\Connecting::setConnectData( $dataBase );
 }
 
+$folder; // almacena la carpeta correspondiente de client/html/app/
+
 $urlController = $drawer->getMVC( 'action', 'index', 'error' );//obtiene el controller de acuerdo al valor de la posicion action en $_GET[]
+$tiempo_fin = microtime(true);
+echo "<center><h1>Tiempo empleado: " . ($tiempo_fin - $tiempo_inicio) . "</h1></center>";
