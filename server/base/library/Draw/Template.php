@@ -17,11 +17,11 @@ class Template
 	{
 		$action; // almacena el nombre de los directorios
 		$action2 = ''; // almacena el nombre del controller y el drawing
-
+		
 		if( isset( $_GET[ $posGET ] ) )
 		{
 			$action = $_GET[ $posGET ];
-			global $folder;
+			global $folder; // la variable folder esta definida en process.php
 			$folder = $action;
 		}			
 		else
@@ -30,7 +30,7 @@ class Template
 		// Si el action vino con guiones en la url
 		if( strpos( $action, '-' )  !== false )
 		{
-			$pieces = explode( '-', $action );
+			$pieces = explode( '-', $action ); // separa cada palabra, utilizando como bandera los guiones
 
 			for( $i = 0; $i < sizeof( $pieces ); $i++ )
 			{
@@ -42,13 +42,14 @@ class Template
 			$action2 = ucfirst( $action );
 		}// end if...else
 
+		// Si existe el controlador de la accion solicitada, dibuja el template correspondiente
 		if( is_file( 'server/controller/'. $action2 .'Controller.php' ) ) 
 		{				 
 			$this->pageTemplate = file_get_contents( 'client/html/app/'.$action.'/'.$action.'.html' );
 			$controller = 'server/controller/'. $action2 .'Controller.php';
 			$drawing = 'server/drawing/' . $action2 . 'Drawing.php';
 		} 
-		else 
+		else // Si no, llama al controlador y el drawing de error
 		{
 			$this->pageTemplate = file_get_contents( 'client/html/notification/' . $error . '.html' );
 			$controller = 'server/controller/'. ucfirst( $error ).'Controller.php';

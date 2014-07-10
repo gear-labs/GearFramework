@@ -13,8 +13,10 @@ class GMySqli
 	static function checkMysqli()
 	{
 		//si no hay una conexion mysqli, lo crea
-		if ( !isset( self::$mysqli ) )
-			self::$mysqli = Connecting::startConnection();				
+		if ( !isset( self::$mysqli ) ) 
+		{
+			self::$mysqli = Connecting::startConnection();
+		}		
 	}//end checkMysqli
 
 
@@ -337,7 +339,7 @@ a.id_articulo = 1
 	{
 		self::checkMysqli();
 		self::$query = "SELECT * FROM ". $from . " WHERE ". $where;
-
+		
 		$result = self::$mysqli->query( self::$query );
 
 		if( $result->num_rows > 0 )

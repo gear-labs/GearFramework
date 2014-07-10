@@ -4,24 +4,27 @@ namespace Gear\Draw;
 
 use Gear\Draw\MasterDrawing;
 
-class Drawing extends MasterDrawing
+class Drawing
 {
 	protected $server; // almacena la url absoluta en donde trabaja el programador		
 	protected $template; // template de la lista con el que trabaja el codigo cliente en un momento dado
 	protected $list; // lista de los words y su correspondiente traduccion
+	private $folder; // replica la variable global folder de process.php
 
 	protected $principalList = array(); // Almacena los distintos fragmentos html de listados
 
 
 	public function __construct()
 	{
-		parent::__construct();
 		//Establece la raiz de trabajo del programador
 		global $server;
 		if( isset( $server ) )
 			$this->server = $server . 'server/';
 		else
 			$this->server = '/server/';
+
+		global $folder;
+		$this->folder = $folder;
 
 	}//end __construct
 

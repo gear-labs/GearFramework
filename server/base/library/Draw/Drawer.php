@@ -59,8 +59,7 @@ class Drawer extends Template {
 		$this->drawing[ 'HEAD' ] = $this->getHead();
 		$this->drawing[ 'HEADER' ] = $this->getHeader();
 		$this->drawing[ 'FOOTER' ] = $this->getFooter();
-		$this->drawing[ '[Lx]' ] = '';
-
+		$this->drawConstWithController();
 	}//end principalTranslate
 
 
@@ -84,7 +83,7 @@ class Drawer extends Template {
 
 		//Por cada elemento del parametro array
 		foreach ( $array as $key => $value ) {
-			$this->drawing[ $key ] = $value;//guarda en la propiedad draw
+			$this->drawing[ $key ] = $value;//guarda en la propiedad drawing
 		}//end foreach
 
 	}//end createDraw
@@ -189,5 +188,3 @@ class Drawer extends Template {
 
 
 }//end Draw
-
-?>

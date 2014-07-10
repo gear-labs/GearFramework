@@ -4,23 +4,22 @@ namespace Gear\Draw;
 
 class MasterDrawing
 {
-	protected $folder; // replica la variable global folder de process.php
+	protected $className; 
 
 	protected $template;
 
 	public function __construct()
 	{
-		global $folder;
-		$this->folder = $folder;
+		$classname = get_class($this);
+		$this->className = str_replace( 'Drawing', '', $classname );
+
 	}//end __construct
 
 
 	public function setTemplate()
 	{
-		global $folder;
-
 		//Establece el directorio de las listas de una vista		
-		$this->template = file_get_contents( 'client/html/master/' . $folder . '/' . lcfirst( $this->className ) . '.html' );
+		$this->template = file_get_contents( 'client/html/master/' . lcfirst( $this->className ) . '/' . lcfirst( $this->className ) . '.html' );
 	}
 
 	public function translateConst()
